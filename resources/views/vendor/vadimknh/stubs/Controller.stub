@@ -1,0 +1,72 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\{{modelName}};
+use App\Http\Requests\{{modelName}}StoreRequest;
+use App\Http\Requests\{{modelName}}UpdateRequest;
+
+class {{modelName}}Controller extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        ${{modelNamePluralLowerCase}} = {{modelName}}::all();
+        return view('admin.{{modelNameSingularLowerCase}}.index', compact('{{modelNamePluralLowerCase}}'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('admin.{{modelNameSingularLowerCase}}.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store({{modelName}}StoreRequest $request)
+    {
+        $data = $request->validated();
+        {{modelName}}::firstOrCreate($data);
+        return redirect()->route('admin.{{modelNameSingularLowerCase}}.index');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show({{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        return view('admin.{{modelNameSingularLowerCase}}.show', compact('{{modelNameSingularLowerCase}}'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit({{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        return view('admin.{{modelNameSingularLowerCase}}.edit', compact('{{modelNameSingularLowerCase}}'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update({{modelName}}UpdateRequest $request, {{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        $data = $request->validated();  
+        ${{modelNameSingularLowerCase}}->update($data);
+        return redirect()->route('admin.{{modelNameSingularLowerCase}}.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy({{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        ${{modelNameSingularLowerCase}}->delete();
+        return redirect()->route('admin.{{modelNameSingularLowerCase}}.index');
+    }
+}

@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', AdminController::class);
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', AdminController::class)->name('main.index');
+    Route::resource('categories', App\Http\Controllers\CategoryController::class)->names('category'); 
+});
