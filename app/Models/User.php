@@ -4,24 +4,41 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+
+    const GENDER_MALE = 1;
+    const GENDER_FEMALE = 2;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * Explicitly indicate which columns in the table cannot be changed.
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
+
+    /**
+     * Transform constants to strings
+     */
+    public function getGenders()
+    {
+        return [
+            self::GENDER_MALE => 'Мужской',
+            self::GENDER_FEMALE => 'Женский',
+        ];
+    }
+
+    /**
+     * To call from view like: $user->genderTitle
+     */
+    public function getGenderTitleAttribute()
+    {
+        return self::getGenders()[$this->gender];
+    }
 
     /**
      * The attributes that should be hidden for serialization.
