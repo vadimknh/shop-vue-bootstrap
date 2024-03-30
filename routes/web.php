@@ -24,4 +24,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('tags', App\Http\Controllers\TagController::class)->names('tag');
     Route::resource('colors', App\Http\Controllers\ColorController::class)->names('color'); 
     Route::resource('users', App\Http\Controllers\UserController::class)->names('user');
+    Route::resource('products', App\Http\Controllers\ProductController::class)->names('product'); 
 });
+
