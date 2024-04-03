@@ -1,7 +1,7 @@
 (function ($) {
     // USE STRICT
     "use strict";
-    $(document).ready(function () {
+    $(document).on('change', function () {
         /*==================================================================
         [ Slick1 ]*/
         $('.wrap-slick1').each(function () {
