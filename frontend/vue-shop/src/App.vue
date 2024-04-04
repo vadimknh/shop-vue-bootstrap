@@ -46,7 +46,7 @@
               </li>
 
               <li>
-                <a href="product.html">Shop</a>
+                <router-link to="/shop">Shop</router-link>
               </li>
 
               <li class="label1" data-label1="hot">
@@ -161,7 +161,7 @@
         </li>
 
         <li>
-          <a href="product.html">Shop</a>
+          <router-link to="/shop">Shop</router-link>
         </li>
 
         <li>
@@ -372,9 +372,9 @@
 
 export default {
   name: 'App',
-  mounted() {
-    $(document).trigger('change')
-  }
+  // mounted() {
+  //   $(document).trigger('change')
+  // }
 }
 </script>
 
