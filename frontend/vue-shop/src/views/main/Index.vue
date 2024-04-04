@@ -1258,6 +1258,9 @@ export default {
       modules: [Navigation, Pagination, Scrollbar, A11y],
     };
   },
+  mounted() {
+    $(document).trigger('change')
+  }
 }
 </script>
 

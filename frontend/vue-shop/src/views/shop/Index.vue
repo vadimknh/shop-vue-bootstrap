@@ -1010,9 +1010,9 @@
 <script>
 export default {
   name: "Index",
-  // mounted() {
-  //   $(document).trigger('change')
-  // }
+  mounted() {
+    $(document).trigger('change')
+  }
 }
 </script>
 
