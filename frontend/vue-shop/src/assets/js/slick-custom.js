@@ -14,7 +14,7 @@
             var actionSlick1 = [];
 
 
-            $(slick1).on('init', function () {
+            $(slick1).not('.slick-initialized').on('init', function () {
                 var layerCurrentItem = $(itemSlick1[0]).find('.layer-slick1');
 
                 for (var i = 0; i < actionSlick1.length; i++) {
@@ -38,7 +38,7 @@
                 showDot = true;
             }
 
-            $(slick1).slick({
+            $(slick1).not('.slick-initialized').slick({
                 pauseOnFocus: false,
                 pauseOnHover: false,
                 slidesToShow: 1,
@@ -88,7 +88,7 @@
         /*==================================================================
         [ Slick2 ]*/
         $('.wrap-slick2').each(function () {
-            $(this).find('.slick2').slick({
+            $(this).find('.slick2').not('.slick-initialized').slick({
                 slidesToShow: 4,
                 slidesToScroll: 4,
                 infinite: false,
@@ -134,13 +134,13 @@
 
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             var nameTab = $(e.target).attr('href');
-            $(nameTab).find('.slick2').slick('reinit');
+            $(nameTab).find('.slick2').not('.slick-initialized').slick('reinit');
         });
 
         /*==================================================================
         [ Slick3 ]*/
         $('.wrap-slick3').each(function () {
-            $(this).find('.slick3').slick({
+            $(this).find('.slick3').not('.slick-initialized').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 fade: true,
