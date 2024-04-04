@@ -1012,6 +1012,15 @@ export default {
   name: "Index",
   mounted() {
     $(document).trigger('change')
+    this.getProducts()
+  },
+  methods: {
+    getProducts() {
+      this.axios.get('http://127.0.0.1:9091/api/products')
+      .then( res => {
+        console.log(res);
+      })
+    }
   }
 }
 </script>
