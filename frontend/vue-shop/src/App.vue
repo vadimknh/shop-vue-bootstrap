@@ -1,6 +1,6 @@
 <template>
   <!-- Header -->
-  <header>
+  <header class="header-v4">
     <!-- Header desktop -->
     <div class="container-menu-desktop">
       <!-- Topbar -->
@@ -372,9 +372,9 @@
 
 export default {
   name: 'App',
-  // mounted() {
-  //   $(document).trigger('change')
-  // }
+  mounted() {
+    $(document).trigger('change')
+  }
 }
 </script>
 
