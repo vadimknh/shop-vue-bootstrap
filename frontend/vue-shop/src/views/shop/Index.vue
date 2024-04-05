@@ -582,6 +582,9 @@ export default {
       .then( res => {
         this.products = res.data.data
       })
+      .finally( v => {
+        $(document).trigger('change')
+      })
     }
   }
 }
