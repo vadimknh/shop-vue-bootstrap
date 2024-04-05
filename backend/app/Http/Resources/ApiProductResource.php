@@ -15,8 +15,14 @@ class ApiProductResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            // example: 'id' => $this->id,
-            // example: 'title' => $this->title,
+             'id' => $this->id,
+             'title' => $this->title,
+             'description' => $this->description,
+             'content' => $this->content,
+             'preview_image_url' => $this->imageUrl,
+             'quantity' => $this->quantity,
+             'price' => $this->price,
+             'category' => new ApiCategoryResource($this->category),
         ];
     }
 }

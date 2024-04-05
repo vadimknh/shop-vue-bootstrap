@@ -20,6 +20,14 @@ class Product extends Model
      */
     protected $guarded = [];
 
+    /**
+     * Explicitly indicate which columns in the table cannot be changed.
+     */
+    public function getImageUrlAttribute()
+    {
+        return url('storage/' . $this->preview_image);
+    }
+
     public function category() {
         return $this->hasOne(Category::class, 'id', 'category_id');
     }

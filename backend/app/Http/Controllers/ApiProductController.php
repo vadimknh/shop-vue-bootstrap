@@ -6,6 +6,7 @@ use App\Models\ApiProduct;
 use App\Http\Resources\ApiProductResource;
 use App\Http\Requests\ApiProductStoreRequest;
 use App\Http\Requests\ApiProductUpdateRequest;
+use App\Models\Product;
 
 class ApiProductController extends Controller
 {
@@ -14,9 +15,8 @@ class ApiProductController extends Controller
      */
     public function index()
     {
-        return 11111;
-//        $apiproducts = ApiProduct::all();
-//        return response(['data' => ApiProductResource::collection($apiproducts)], 200);
+        $apiProducts = Product::all();
+        return response(['data' => ApiProductResource::collection($apiProducts)], 200);
     }
 //
 //    /**
