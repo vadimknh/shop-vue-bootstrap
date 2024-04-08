@@ -331,6 +331,7 @@
         </div>
       </div>
 
+      <!-- Products grid      -->
       <div class="row isotope-grid">
 
         <div v-for="product in products" class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
@@ -417,36 +418,34 @@
                       <div class="p-t-33">
                         <div class="flex-w flex-r-m p-b-10">
                           <div class="size-203 flex-c-m respon6">
-                            Size
+                            Размер
                           </div>
 
                           <div class="size-204 respon6-next">
                             <div class="rs1-select2 bor8 bg0">
                               <select class="js-select2" name="time">
                                 <option>Choose an option</option>
-                                <option>Size S</option>
-                                <option>Size M</option>
-                                <option>Size L</option>
-                                <option>Size XL</option>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                                <option>XL</option>
                               </select>
                               <div class="dropDownSelect2"></div>
                             </div>
                           </div>
                         </div>
 
+                        <!-- Colors -->
                         <div class="flex-w flex-r-m p-b-10">
                           <div class="size-203 flex-c-m respon6">
-                            Color
+                            Цвет
                           </div>
 
                           <div class="size-204 respon6-next">
                             <div class="rs1-select2 bor8 bg0">
-                              <select class="js-select2" name="time">
-                                <option>Choose an option</option>
-                                <option>Red</option>
-                                <option>Blue</option>
-                                <option>White</option>
-                                <option>Grey</option>
+                              <select  class="js-select2" name="time">
+                                <option>Выберите цвет</option>
+                                <option v-for="color in product.colors">{{ color.description }}</option>
                               </select>
                               <div class="dropDownSelect2"></div>
                             </div>
@@ -565,7 +564,7 @@ export default {
     }
   },
   mounted() {
-    $(document).trigger('change')
+    // $(document).trigger('change')
     this.getProducts()
   },
   methods: {
@@ -573,6 +572,7 @@ export default {
       this.axios.get('http://127.0.0.1:9091/api/products')
           .then(res => {
             this.products = res.data.data
+            console.log(res.data.data);
           })
           .finally(v => {
             $(document).trigger('change')
