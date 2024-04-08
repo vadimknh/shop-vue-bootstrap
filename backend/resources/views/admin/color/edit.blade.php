@@ -41,6 +41,14 @@
                                         <div class="text-danger">Поле необходимо заполнить</div>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputTitle">Заголовок</label>
+                                    <input name="description" value="{{ $color->description }}" type="text" class="form-control"
+                                        id="exampleInputTitle" placeholder="Описание цвета">
+                                    @error('description')
+                                        <div class="text-danger">Поле необходимо заполнить</div>
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="card-footer">

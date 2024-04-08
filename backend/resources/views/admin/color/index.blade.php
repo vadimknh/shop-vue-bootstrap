@@ -56,7 +56,8 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Название</th>
+                                            <th>Код цвета</th>
+                                            <th>Название цвета</th>
                                             <th>Цвет</th>
                                             <th>Дата создания</th>
                                             <th>Действия</th>
@@ -68,6 +69,7 @@
                                             <tr>
                                                 <td>{{ $color->id }}</td>
                                                 <td>{{ $color->title }}</td>
+                                                <td>{{ $color->description }}</td>
                                                 <td><i class="fas fa-square"  style="color:{{ $color->title }}"></i></td>
                                                 <td>{{ $color->created_at }}</td>
                                                 <td>

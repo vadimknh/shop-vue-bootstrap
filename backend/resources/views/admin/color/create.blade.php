@@ -34,8 +34,16 @@
                                 <div class="form-group">
                                     <label for="exampleInputTitle">Заголовок</label>
                                     <input name="title" type="text" class="form-control" id="exampleInputTitle"
-                                        placeholder="Название цвета">
+                                        placeholder="Код цвета с #">
                                     @error('title')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputTitle">Заголовок</label>
+                                    <input name="description" type="text" class="form-control" id="exampleInputTitle"
+                                        placeholder="Название цвета">
+                                    @error('description')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

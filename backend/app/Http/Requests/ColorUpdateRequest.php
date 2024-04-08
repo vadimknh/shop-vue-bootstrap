@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ColorUpdateRequest extends FormRequest
-{   
+{
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -23,6 +23,7 @@ class ColorUpdateRequest extends FormRequest
     {
          return [
             'title' => ['required', 'regex:/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/'],
+             'description' => 'required'
         ];
     }
 
