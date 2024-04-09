@@ -32,10 +32,11 @@ class ApiProductController extends Controller
 //    /**
 //     * Display the specified resource.
 //     */
-//    public function show(ApiProduct $apiproduct)
-//    {
-//        return response(['data' => new ApiProductResource($apiproduct)], 200);
-//    }
+    public function show($id)
+    {
+        $apiproduct = Product::find($id);
+        return response(['data' => new ApiProductResource($apiproduct)], 200);
+    }
 //
 //    /**
 //     * Update the specified resource in storage.

@@ -263,22 +263,31 @@
 
         /*==================================================================
         [ Show modal1 ]*/
-        const modalOpenBtns = document.querySelectorAll(".js-show-modal");
-        const modalCloseBtns = document.querySelectorAll(".js-hide-modal");
-        const modals = document.querySelectorAll(".js-modal");
+        $('.js-show-modal').on('click',function(e){
+            e.preventDefault();
+            $('.js-modal').addClass('show-modal1');
+        });
 
-        for (let i = 0; i < modalOpenBtns.length; i++) {
-            modalOpenBtns[i].addEventListener("click", function (e) {
-                e.preventDefault();
-                modals[i].classList.add('show-modal1');
-            });
-        }
+        $('.js-hide-modal').on('click',function(){
+            $('.js-modal').removeClass('show-modal1');
+        });
 
-        for (let i = 0; i < modalCloseBtns.length; i++) {
-            modalCloseBtns[i].addEventListener("click", function (e) {
-                e.preventDefault();
-                modals[i].classList.remove('show-modal1');
-            });
-        }
+        // const modalOpenBtns = document.querySelectorAll(".js-show-modal");
+        // const modalCloseBtns = document.querySelectorAll(".js-hide-modal");
+        // const modals = document.querySelectorAll(".js-modal");
+        //
+        // for (let i = 0; i < modalOpenBtns.length; i++) {
+        //     modalOpenBtns[i].addEventListener("click", function (e) {
+        //         e.preventDefault();
+        //         modals[i].classList.add('show-modal1');
+        //     });
+        // }
+        //
+        // for (let i = 0; i < modalCloseBtns.length; i++) {
+        //     modalCloseBtns[i].addEventListener("click", function (e) {
+        //         e.preventDefault();
+        //         modals[i].classList.remove('show-modal1');
+        //     });
+        // }
     });
 })(jQuery);
