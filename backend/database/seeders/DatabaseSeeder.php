@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Color;
 use App\Models\ColorProduct;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\ProductTag;
 use App\Models\Tag;
 use Illuminate\Database\Seeder;
@@ -93,6 +94,22 @@ class DatabaseSeeder extends Seeder
             'color_id' => 2,
             'product_id' => 1,
         ]);
+        ProductImage::create([
+            'file_path' => 'images/product-01.jpg',
+            'product_id' => 1
+        ]);
+        ProductImage::create([
+            'file_path' => 'images/product-detail-01.jpg',
+            'product_id' => 1
+        ]);
+        ProductImage::create([
+            'file_path' => 'images/product-detail-02.jpg',
+            'product_id' => 1
+        ]);
+        ProductImage::create([
+            'file_path' => 'images/product-detail-03.jpg',
+            'product_id' => 1
+        ]);
 
         // Product 2
         Product::create([
@@ -101,7 +118,7 @@ class DatabaseSeeder extends Seeder
             'content' => 'Футболка Поло',
             'preview_image' => 'images/product-10.jpg',
             'quantity' => 10,
-            'price' => 500,
+            'price' => 600,
             'category_id' => 1,
         ]);
 

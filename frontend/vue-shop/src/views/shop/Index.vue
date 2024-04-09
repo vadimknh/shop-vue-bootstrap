@@ -422,18 +422,40 @@
             <div class="row">
               <div class="col-md-6 col-lg-7 p-b-30">
                 <div class="p-l-25 p-r-30 p-lr-0-lg">
+                  <template v-if="modalProduct.images.length > 0">
+                    <swiper
+                        :modules="modules"
+                        @swiper="onSwiper"
+                        @slideChange="onSlideChange"
+                        navigation
+                        :pagination="{ clickable: true }"
+                        :scrollbar="{ draggable: true }"
+                        class="flex-sb flex-w"
+                    >
+
+                      <swiper-slide v-for="image in modalProduct.images">
+                        <img :src="image.imagePath" alt="IMG-PRODUCT" style="width: 500px; height: 600px; display: flex; margin: 0 auto;" >
+                      </swiper-slide>
+                    </swiper>
+                  </template>
+                  <template v-else>
+                    <img :src="modalProduct.preview_image_url" alt="IMG-PRODUCT" style="width: 500px; height: 600px; display: flex; margin: 0 auto;" >
+                  </template>
+
                   <div class="wrap-slick3 flex-sb flex-w">
                     <div class="wrap-slick3-dots"></div>
                     <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
                     <div class="item-slick3" data-thumb="/src/assets/images/product-detail-01.jpg">
                       <div class="wrap-pic-w pos-relative">
-                        <img :src="modalProduct.preview_image_url" alt="IMG-PRODUCT">
+                        <!-- Slider -->
+<!--                        <img :src="modalProduct.preview_image_url" alt="IMG-PRODUCT">-->
 
-                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                           href="/src/assets/images/product-detail-01.jpg">
-                          <i class="fa fa-expand"></i>
-                        </a>
+
+<!--                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"-->
+<!--                           href="/src/assets/images/product-detail-01.jpg">-->
+<!--                          <i class="fa fa-expand"></i>-->
+<!--                        </a>-->
                       </div>
                     </div>
 
@@ -484,7 +506,7 @@
 
                       <div class="size-204 respon6-next">
                         <div class="rs1-select2 bor8 bg0">
-                          <select  class="js-select2" name="time">
+                          <select class="js-select2" name="time">
                             <option>Выберите цвет</option>
                             <option v-for="color in modalProduct.colors">{{ color.description }}</option>
                           </select>
@@ -561,8 +583,35 @@
 </template>
 
 <script>
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 export default {
   name: "Index",
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const onSwiper = (swiper) => {
+      // console.log(swiper);
+    };
+    const onSlideChange = () => {
+      // console.log('slide change');
+    };
+    return {
+      onSwiper,
+      onSlideChange,
+      modules: [Navigation, Pagination, Scrollbar, A11y],
+    };
+  },
   data() {
     return {
       products: [],

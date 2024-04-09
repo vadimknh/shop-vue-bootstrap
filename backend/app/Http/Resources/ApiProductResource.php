@@ -23,7 +23,8 @@ class ApiProductResource extends JsonResource
             'quantity' => $this->quantity,
             'price' => $this->price,
             'category' => new ApiCategoryResource($this->category),
-            'colors' => $this->colors
+            'colors' => $this->colors,
+            'images' => ApiProductImageResource::collection($this->images),
         ];
     }
 }
